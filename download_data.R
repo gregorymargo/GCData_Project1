@@ -27,4 +27,4 @@ dataURL <- dataURL_UCI		# Let's try the UCI one
 # Give it a good local name
 localName <- "UCI HAR Dataset.zip"
 
-download.file(dataURL, destfile=localName, method="curl")
+download.file(dataURL, destfile=localName, method="internal", mode="wb")
