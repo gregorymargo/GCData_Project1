@@ -28,3 +28,28 @@ Optional files I will probably delete:
 
 - DATAINFO.gm.txt
 - README.gm.txt
+
+
+# H1
+
+foo
+
+## H2
+
+foo
+
+### H3
+
+foo
+
+#### H4
+
+foo
+
+##### H5
+
+foo
+
+###### H6
+
+foo
