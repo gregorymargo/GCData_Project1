@@ -1,17 +1,17 @@
-# Getting and Cleaning Data Course Project
+## Getting and Cleaning Data Course Project
 
 This repository represents the course project for the **Getting and Cleaning Data** class
 given by **Johns Hopkins** through the **Coursera** platform.
 
-## When, Where, Why, Who?
+### When, Where, Why, Who?
 
 This work was performed for the third session of the **Getting and Cleaning Data** class,
-[Coursera class link](https://class.coursera.org/getdata-003)
+[https://class.coursera.org/getdata-003](https://class.coursera.org/getdata-003),
 which began May 05 2014.
 This work was completed on or before the due date of May 25 2014.
 All of the work within is original code and text by Gregory Margo.
 
-## What Are All These Files?
+### What Are All These Files?
 
 There are several files included here.
 Some are required files for this project, while others are optional but helpful.
