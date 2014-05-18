@@ -18,9 +18,10 @@ Some are required files for this project, while others are optional but helpful.
 
 Project files:
 
-- README.md - A description of this repository and all the files within it.
 - CodeBook.md - A description of all data manipulations performed.
 - download_data.R - An R script to download data from the original source.
+- ProjectDescription.txt - The project description, copied from the official assignment page.
+- README.md - A description of this repository and all the files within it.
 - run_analysis.R - An R script to analyze the input data and produce the tidy output data.
 - unzip_data.R - An R script to unzip the downloaded data.
 
@@ -30,26 +31,16 @@ Optional files I will probably delete:
 - README.gm.txt
 
 
-# H1
+### Dataset License
 
-foo
+The original dataset license requires this publication reference:
 
-## H2
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz.<br/>
+Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine.<br/>
+International Workshop of Ambient Assisted Living (IWAAL 2012).<br/>
+Vitoria-Gasteiz, Spain. Dec 2012<br/>
 
-foo
+The original dataset is available from these links:
 
-### H3
-
-foo
-
-#### H4
-
-foo
-
-##### H5
-
-foo
-
-###### H6
-
-foo
+[http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip)<br/>
+[https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
