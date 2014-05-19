@@ -96,6 +96,7 @@ desc <- gsub("(", "", desc, fixed=TRUE)
 stopifnot(unique_count == length(unique(desc)))
 
 feature_labels$featureDescMod <- desc
+rm(desc, unique_count)
 
 
 #------------------------------------------------------------------------------
@@ -110,6 +111,7 @@ f_mean_cols <- grep("mean()", feature_labels$featureDesc, fixed = TRUE)
 f_std_cols  <- grep("std()",  feature_labels$featureDesc, fixed = TRUE)
 f_cols <- sort(append(f_mean_cols, f_std_cols))
 f_cols_names <- sub("^", "V", f_cols)       # default name is 'Vn+' with read.table
+rm(f_mean_cols, f_std_cols)
 # "f_cols" is the list of feature numbers that interest us.
 # "f_cols_names" is the list of feature names that interest us.
 
@@ -140,11 +142,8 @@ X_test <- read.table(
 # Isolate only those columns that interest us.
 X_test <- X_test[, f_cols_names]
 
-# Merge y_test and "activity_labels" so both the id and string are present
-activity_test <- merge(y_test, activity_labels, by=c("activityId"))
-
 # Build the dataset for the test data:
-dataset_test <- cbind(subject_test, activity_test, X_test)
+dataset_test <- cbind(subject_test, y_test, X_test)
 
 
 #-------------------- TRAIN data -----------------------------
@@ -174,11 +173,8 @@ X_train <- read.table(
 # Isolate only those columns that interest us.
 X_train <- X_train[, f_cols_names]
 
-# Merge y_train and "activity_labels" so both the id and string are present
-activity_train <- merge(y_train, activity_labels, by=c("activityId"))
-
 # Build the dataset for the train data:
-dataset_train <- cbind(subject_train, activity_train, X_train)
+dataset_train <- cbind(subject_train, y_train, X_train)
 
 
 #-------------------- COMBINED data -----------------------------
@@ -193,13 +189,24 @@ dataset <- dataset[order(dataset$subjectId, dataset$activityId), ]
 row.names(dataset) <- NULL
 
 # Assign new column names, replacing "Vn+" with the featureDescMod string.
-names(dataset) <- append(c("subjectId", "activityId", "activityDesc"), feature_labels[f_cols, "featureDescMod"])
+names(dataset) <- append(c("subjectId", "activityId"), feature_labels[f_cols, "featureDescMod"])
 
 
 # "dataset" is now a "tidy data" representation of the test+train data of the columns we want.
+# It does not contain the activity descriptions yet.
 
 
 #------------------------------------------------------------------------------
 # 5. Creates a second, independent tidy data set with the average of each
 #    variable for each activity and each subject.
 #------------------------------------------------------------------------------
+print("Generating Means by subject+activity")
+
+y <- aggregate(dataset, by=list(dataset$subjectId, dataset$activityId), FUN=mean, simplify=FALSE)
+z <- aggregate(dataset, by=list(dataset$activityId, dataset$subjectId), FUN=mean, simplify=FALSE)
+
+# Merge y_test and "activity_labels" so both the id and string are present
+#activity_test <- merge(y_test, activity_labels, by=c("activityId"))
+# Merge y_train and "activity_labels" so both the id and string are present
+#activity_train <- merge(y_train, activity_labels, by=c("activityId"))
+#names(dataset) <- append(c("subjectId", "activityId", "activityDesc"), feature_labels[f_cols, "featureDescMod"])
