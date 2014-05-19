@@ -25,12 +25,6 @@ Project files:
 - run_analysis.R - An R script to analyze the input data and produce the tidy output data.
 - unzip_data.R - An R script to unzip the downloaded data.
 
-Optional files I will probably delete:
-
-- DATAINFO.gm.txt
-- README.gm.txt
-
-
 ### Dataset License
 
 The original dataset license requires this publication reference:
@@ -42,5 +36,5 @@ Vitoria-Gasteiz, Spain. Dec 2012<br/>
 
 The original dataset is available from these links:
 
-[http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip)<br/>
-[https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+[http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI HAR Dataset.zip](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip)<br/>
+[https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI HAR Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip)
