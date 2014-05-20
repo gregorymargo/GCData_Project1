@@ -38,3 +38,13 @@ The original dataset is available from these links:
 
 [http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI HAR Dataset.zip](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip)<br/>
 [https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI HAR Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip)
+
+### Naming Conventions
+
+The instruction for this class would have one believe that lower-casing
+was good, which is, of course, foolish.  Mixed case vastly improve readability.
+
+Also the "recommendations" recommend avoiding avoiding periods (".") as a
+separator character.  This too is foolish.  Period is just about the only ascii
+character that can be used as a separator, since comma and space must be avoided.
+
