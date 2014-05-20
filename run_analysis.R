@@ -26,6 +26,13 @@
 #    variable for each activity and each subject.
 
 #------------------------------------------------------------------------------
+# Environment.
+# This code was tested on Ubuntu 14.04 with:
+# R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+# Platform: x86_64-pc-linux-gnu (64-bit)
+
+#------------------------------------------------------------------------------
+# Assumptions.
 # Presume that the dataset has already been downloaded
 # and unzipped into a directory named "UCI HAR Dataset".
 #
@@ -202,11 +209,22 @@ names(dataset) <- append(c("subjectId", "activityId"), feature_labels[f_cols, "f
 #------------------------------------------------------------------------------
 print("Generating Means by subject+activity")
 
-y <- aggregate(dataset, by=list(dataset$subjectId, dataset$activityId), FUN=mean, simplify=FALSE)
-z <- aggregate(dataset, by=list(dataset$activityId, dataset$subjectId), FUN=mean, simplify=FALSE)
+# Is it better to sort subject/activity, or activity/subject?
+# I kind of like subject/activity, which shows all the WALKING activities of all
+# the subjects together.
+agg <- aggregate(dataset, by=list(dataset$subjectId, dataset$activityId), FUN=mean, simplify=TRUE)
+agg2 <- merge(agg, activity_labels, by=c("activityId"))
 
-# Merge y_test and "activity_labels" so both the id and string are present
-#activity_test <- merge(y_test, activity_labels, by=c("activityId"))
-# Merge y_train and "activity_labels" so both the id and string are present
-#activity_train <- merge(y_train, activity_labels, by=c("activityId"))
-#names(dataset) <- append(c("subjectId", "activityId", "activityDesc"), feature_labels[f_cols, "featureDescMod"])
+# Take only the columns we want, and reorder them so that "subjectId" and
+# "activityDesc" are the first two columns.  We'll leave behind "activityId" and
+# the "Group.N" entries that aggregate() left behind.
+agg_names <- append(c("subjectId", "activityDesc"), feature_labels[f_cols, "featureDescMod"])
+agg3 <- agg2[, agg_names]
+
+
+#------------------------------------------------------------------------------
+# Write output to a CSV file.
+outputFileName <- "means.csv"
+print(paste("Writing aggregated means output to", outputFileName))
+write.csv(agg3, file=outputFileName, row.names=FALSE)
+
