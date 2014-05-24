@@ -1,9 +1,9 @@
 ## CodeBook for:
 ## Getting and Cleaning Data Course Project
 
-This file describes the format of the submitted "tidy dataset" which represents
-the means of all the means and standard deviation measurements in the original
-data.
+This file describes the format and generation of the submitted "tidy dataset"
+which represents the means of all the means and standard deviation measurements
+in the original data.
 
 ### Original Data
 
@@ -19,24 +19,6 @@ The original dataset is available from these links:
 [http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI HAR Dataset.zip](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip)<br/>
 [https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI HAR Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip)
 
-<!--
-from:
-https://class.coursera.org/getdata-003/forum/thread?thread_id=199
-
-I am planning a relatively brief README that explains what is contained in the
-dataset, how to run the script, high-level summary of what the script actually
-does, and gives links / citations to the original data from which it was
-derived.
-
-In my CodeBook I will provide a detailed description of the variables, activity
-labels, my naming strategy, variable selection method, and notation. I am not
-sure of the value of including detailed descriptions of the meaning and
-interpretation of each of the many variables that I included. I think it is
-safer to explain the correspondence and transformations that were applied and
-link to the original documentation / citation materials (since my dataset and
-analysis script are both entirely dependent upon it).
--->
-
 ### Activity Labels
 
 The measurements consist of multiple measurements across 30 subjects and 6 activities.
@@ -44,21 +26,24 @@ The activity descriptions (and original activity identifier) are specified throu
 the "activity_labels.txt" file from the original .zip file, and are:
 
 <pre>
-  activityId       activityDesc
-1          1            WALKING
-2          2   WALKING_UPSTAIRS
-3          3 WALKING_DOWNSTAIRS
-4          4            SITTING
-5          5           STANDING
-6          6             LAYING
+activityId       activityDesc
+         1            WALKING
+         2   WALKING_UPSTAIRS
+         3 WALKING_DOWNSTAIRS
+         4            SITTING
+         5           STANDING
+         6             LAYING
 </pre>
 
 ### Naming Strategy
 
-The course's suggested naming strategy requires that all variables be
-transformed to lower case letters.
-This is foolish at best, and will not be practiced here.
-Multiple case is far easier to understand.
+The instruction for this class would have one believe that lower-case variable
+names are good, which is, of course, foolish.  Mixed case vastly improves
+readability.
+
+Also the "recommendations" recommend avoiding periods (".") as a separator
+character.  This too is foolish.  Period is just about the only ascii character
+that can be used as a separator, since comma and space must be avoided.
 
 Here is a summary of the steps take to "clean" the variable names into more
 user friendly (and R friendly) names.  The original variable names
@@ -104,12 +89,13 @@ All of the measurements containing "mean()" or "std()" in their names were selec
 The original names of all the variables may be viewed in the "features_info.txt" file
 contained in the "UCI HAR Dataset.zip" zip file.
 
+### Results
+
 The measurements are measures of multiple experiments on 30 subjects across 6 different activities.
 So for each combination of one subject and one activity, there are many individual mean/std measurements.
 This study produces means of each combination's multiple mean/std measurements.
 This yields 30 * 6 = 180 rows in the summary statistics table.
-
-### Notation
+The resultant data is printed into a file "means.csv" as a comma-separated-value table.
 
 ### Variables
 

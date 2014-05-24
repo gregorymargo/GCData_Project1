@@ -25,26 +25,19 @@ Project files:
 - run_analysis.R - An R script to analyze the input data and produce the tidy output data.
 - unzip_data.R - An R script to unzip the downloaded data.
 
-### Dataset License
+### Content Of Dataset
 
-The original dataset license requires this publication reference:
+The resultant dataset, saved as a file named "means.csv" contains mean values of
+all combinations of subject and activity.
+See CodeBook.md for full details.
 
-Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz.<br/>
-Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine.<br/>
-International Workshop of Ambient Assisted Living (IWAAL 2012).<br/>
-Vitoria-Gasteiz, Spain. Dec 2012<br/>
+### How To Run The Script
 
-The original dataset is available from these links:
+The R script is named 'run_analysis.R'.
+One could run the script from within R using 'source("run_analysis.R")',
+or one could run the script from the command line using 'Rscript run_analysis.R'.
 
-[http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI HAR Dataset.zip](http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip)<br/>
-[https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI HAR Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata/projectfiles/UCI%20HAR%20Dataset.zip)
+### What The Script Does
 
-### Naming Conventions
-
-The instruction for this class would have one believe that lower-casing
-was good, which is, of course, foolish.  Mixed case vastly improve readability.
-
-Also the "recommendations" recommend avoiding avoiding periods (".") as a
-separator character.  This too is foolish.  Period is just about the only ascii
-character that can be used as a separator, since comma and space must be avoided.
+The script reads, isolates, and summarizes the smart phone data to produce "means.csv".
 
